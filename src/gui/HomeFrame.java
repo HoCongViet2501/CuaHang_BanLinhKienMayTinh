@@ -16,7 +16,7 @@ public class HomeFrame extends JFrame {
 
 		initComponents();
 		setLocationRelativeTo(null);
-		phanquyen();
+		//phanquyen();
 		new Thread() {
 			public void run() {
 				while (true) {
@@ -49,11 +49,10 @@ public class HomeFrame extends JFrame {
 		String manv = new LoginFrame().getMaNVText();
 		String chucvu = daohome.getChucVu(manv);
 		if (chucvu.equals("NVBH")) {
-			mnuItemDCHT.setEnabled(false);
+			mnuItemSP.setEnabled(false);
 			mnuItemLSP.setEnabled(false);
 			mnuItemNCC.setEnabled(false);
 			mnuItemNV.setEnabled(false);
-			mnuItemSach.setEnabled(false);
 			mnuItemThongKeDT.setEnabled(false);
 			mnuItemThongKeSP.setEnabled(false);
 			btnCapNhatLSP.setEnabled(false);
@@ -64,7 +63,7 @@ public class HomeFrame extends JFrame {
 			btnThongKeDT.setEnabled(false);
 			btnThongKeSP.setEnabled(false);
 		}
-		if (chucvu.equals("NVNK")) {
+		if (chucvu.equals("NVNS")) {
 			mnuItemBanHang.setEnabled(false);
 			mnuItemDatHang.setEnabled(false);
 			mnuItemNV.setEnabled(false);
@@ -105,24 +104,20 @@ public class HomeFrame extends JFrame {
 		btnThongKeDT = new javax.swing.JButton();
 		panelDongHo = new javax.swing.JPanel();
 		labelDongHo = new javax.swing.JLabel();
-		btnChamCong = new javax.swing.JButton();
 		labelvalueTenNV = new javax.swing.JLabel();
 		menuBarHome = new javax.swing.JMenuBar();
 		mnuDanhMuc = new javax.swing.JMenu();
-		mnuItemDCHT = new javax.swing.JMenuItem();
+		mnuItemSP = new javax.swing.JMenuItem();
 		mnuItemNV = new javax.swing.JMenuItem();
 		mnuItemLSP = new javax.swing.JMenuItem();
 		mnuItemNCC = new javax.swing.JMenuItem();
-		mnuItemSach = new javax.swing.JMenuItem();
 		mnuTmKiem = new javax.swing.JMenu();
-		mnuItemTKSach = new javax.swing.JMenuItem();
 		mnuItemTKHD = new javax.swing.JMenuItem();
 		mnuItemTKDH = new javax.swing.JMenuItem();
 		mnuItemTKNCC = new javax.swing.JMenuItem();
 		mnuitemTKLSP = new javax.swing.JMenuItem();
-		mnuItemTKDDHT = new javax.swing.JMenuItem();
+		mnuItemTKSP = new javax.swing.JMenuItem();
 		mnuXuLy = new javax.swing.JMenu();
-		mnuItemChamCong = new javax.swing.JMenuItem();
 		mnuItemBanHang = new javax.swing.JMenuItem();
 		mnuItemDoiMatKhau = new javax.swing.JMenuItem();
 		mnuItemDatHang = new javax.swing.JMenuItem();
@@ -146,7 +141,7 @@ public class HomeFrame extends JFrame {
 		labelManHinhChinh.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		labelManHinhChinh.setForeground(new java.awt.Color(102, 102, 102));
 		labelManHinhChinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bookstore.png"))); // NOI18N
-		labelManHinhChinh.setText("QUẢN LÝ HIỆU SÁCH");
+		labelManHinhChinh.setText(" CỬA HÀNG LINH KIỆN MÁY TÍNH");
 
 		btnQuanLySP.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 		btnQuanLySP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/product.png"))); // NOI18N
@@ -283,15 +278,6 @@ public class HomeFrame extends JFrame {
 								.addComponent(labelDongHo, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
 								.addContainerGap()));
 
-		btnChamCong.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-		btnChamCong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/attendance.png"))); // NOI18N
-		btnChamCong.setText("Chấm công");
-		btnChamCong.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnChamCongActionPerformed(evt);
-			}
-		});
-
 		labelvalueTenNV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 		labelvalueTenNV.setText("value tên nhân viên");
 
@@ -358,10 +344,7 @@ public class HomeFrame extends JFrame {
 																				.addComponent(labelvalueTenNV))
 																.addGroup(panelManHinhChinhLayout.createParallelGroup(
 																		javax.swing.GroupLayout.Alignment.TRAILING)
-																		.addComponent(btnChamCong,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				189,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
+																		
 																		.addComponent(panelDongHo,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -385,9 +368,7 @@ public class HomeFrame extends JFrame {
 														.addComponent(
 																jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(18, 18, 18).addComponent(btnChamCong,
-																javax.swing.GroupLayout.PREFERRED_SIZE, 53,
-																javax.swing.GroupLayout.PREFERRED_SIZE)))
+														.addGap(18, 18, 18)))
 										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25,
 												Short.MAX_VALUE)
 										.addComponent(
@@ -462,13 +443,13 @@ public class HomeFrame extends JFrame {
 
 		mnuDanhMuc.setText("Danh mục");
 
-		mnuItemDCHT.setText("Dụng cụ học tập");
-		mnuItemDCHT.addActionListener(new java.awt.event.ActionListener() {
+		mnuItemSP.setText("Sản phẩm");
+		mnuItemSP.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				mnuItemDCHTActionPerformed(evt);
 			}
 		});
-		mnuDanhMuc.add(mnuItemDCHT);
+		mnuDanhMuc.add(mnuItemSP);
 
 		mnuItemNV.setText("Nhân viên");
 		mnuItemNV.addActionListener(new java.awt.event.ActionListener() {
@@ -494,25 +475,10 @@ public class HomeFrame extends JFrame {
 		});
 		mnuDanhMuc.add(mnuItemNCC);
 
-		mnuItemSach.setText("Sách");
-		mnuItemSach.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemSachActionPerformed(evt);
-			}
-		});
-		mnuDanhMuc.add(mnuItemSach);
-
 		menuBarHome.add(mnuDanhMuc);
 
 		mnuTmKiem.setText("Tìm kiếm");
 
-		mnuItemTKSach.setText("Tìm kiếm sách");
-		mnuItemTKSach.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemTKSachActionPerformed(evt);
-			}
-		});
-		mnuTmKiem.add(mnuItemTKSach);
 
 		mnuItemTKHD.setText("Tìm kiếm hóa đơn");
 		mnuItemTKHD.addActionListener(new java.awt.event.ActionListener() {
@@ -546,25 +512,17 @@ public class HomeFrame extends JFrame {
 		});
 		mnuTmKiem.add(mnuitemTKLSP);
 
-		mnuItemTKDDHT.setText("Tìm kiếm đồ dùng học tập");
-		mnuItemTKDDHT.addActionListener(new java.awt.event.ActionListener() {
+		mnuItemTKSP.setText("Tìm kiếm sản phẩm");
+		mnuItemTKSP.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				mnuItemTKDDHTActionPerformed(evt);
 			}
 		});
-		mnuTmKiem.add(mnuItemTKDDHT);
+		mnuTmKiem.add(mnuItemTKSP);
 
 		menuBarHome.add(mnuTmKiem);
 
 		mnuXuLy.setText("Xử lý");
-
-		mnuItemChamCong.setText("Chấm công");
-		mnuItemChamCong.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemChamCongActionPerformed(evt);
-			}
-		});
-		mnuXuLy.add(mnuItemChamCong);
 
 		mnuItemBanHang.setText("Bán hàng");
 		mnuItemBanHang.addActionListener(new java.awt.event.ActionListener() {
@@ -756,7 +714,7 @@ public class HomeFrame extends JFrame {
 
 	protected void btnThoatActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+       System.exit(0);
 	}
 
 	protected void btnBanHangActionPerformed(ActionEvent evt) {
@@ -771,7 +729,7 @@ public class HomeFrame extends JFrame {
 
 	protected void btnDangXuatActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+         new LoginFrame().setVisible(true);
 	}
 
 	protected void btnQuanLyDHActionPerformed(ActionEvent evt) {
@@ -828,7 +786,6 @@ public class HomeFrame extends JFrame {
 	private javax.swing.JButton btnBanHang;
 	private javax.swing.JButton btnCapNhatLSP;
 	private javax.swing.JButton btnCapNhatNCC;
-	private javax.swing.JButton btnChamCong;
 	private javax.swing.JButton btnDangXuat;
 	private javax.swing.JButton btnQuanLyDH;
 	private javax.swing.JButton btnQuanLyNV;
@@ -845,20 +802,17 @@ public class HomeFrame extends JFrame {
 	private javax.swing.JMenuBar menuBarHome;
 	private javax.swing.JMenu mnuDanhMuc;
 	private javax.swing.JMenuItem mnuItemBanHang;
-	private javax.swing.JMenuItem mnuItemChamCong;
-	private javax.swing.JMenuItem mnuItemDCHT;
+	private javax.swing.JMenuItem mnuItemSP;
 	private javax.swing.JMenuItem mnuItemDangxuat;
 	private javax.swing.JMenuItem mnuItemDatHang;
 	private javax.swing.JMenuItem mnuItemDoiMatKhau;
 	private javax.swing.JMenuItem mnuItemLSP;
 	private javax.swing.JMenuItem mnuItemNCC;
 	private javax.swing.JMenuItem mnuItemNV;
-	private javax.swing.JMenuItem mnuItemSach;
-	private javax.swing.JMenuItem mnuItemTKDDHT;
+	private javax.swing.JMenuItem mnuItemTKSP;
 	private javax.swing.JMenuItem mnuItemTKDH;
 	private javax.swing.JMenuItem mnuItemTKHD;
 	private javax.swing.JMenuItem mnuItemTKNCC;
-	private javax.swing.JMenuItem mnuItemTKSach;
 	private javax.swing.JMenuItem mnuItemThongKeDT;
 	private javax.swing.JMenuItem mnuItemThongKeSP;
 	private javax.swing.JMenu mnuThongKe;

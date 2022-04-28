@@ -24,5 +24,14 @@ public class LoaiSanPham {
 	public String toString() {
 		return "LoaiSanPham [maLoaiSP=" + maLoaiSP + ", tenLoaiSP=" + tenLoaiSP + "]";
 	}
+	public LoaiSanPham(String maLoaiSP) {
+		super();
+		this.maLoaiSP = maLoaiSP;
+	}
+	public LoaiSanPham() {
+		// TODO Auto-generated constructor stub
+		super();
+		this.maLoaiSP=maLoaiSP;
+	}
     
 }

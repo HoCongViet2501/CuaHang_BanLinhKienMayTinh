@@ -3,7 +3,8 @@ package entity;
 import java.util.Arrays;
 
 public class SanPham {
-     private String maSP;
+    
+	private String maSP;
      private String tenSP;
      private int slton;
      private double donGia;
@@ -52,7 +53,16 @@ public class SanPham {
 	public void setMaLoaiSP(LoaiSanPham maLoaiSP) {
 		this.loaiSanPham = maLoaiSP;
 	}
-	
+	 public SanPham(String maSP, String tenSP, int slton, double donGia, NhaCungCap nhaCungCap,
+			LoaiSanPham loaiSanPham) {
+		super();
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.slton = slton;
+		this.donGia = donGia;
+		this.nhaCungCap = nhaCungCap;
+		this.loaiSanPham = loaiSanPham;
+	}
 	public SanPham(String maSP, String tenSP, int slton, double donGia, byte[] hinhAnh, NhaCungCap nhaCungCap,
 			LoaiSanPham loaiSanPham) {
 		super();
@@ -69,5 +79,8 @@ public class SanPham {
 		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", slton=" + slton + ", donGia=" + donGia + ", hinhAnh="
 				+ Arrays.toString(hinhAnh) + ", maNCC=" + nhaCungCap + ", maLoaiSP=" + loaiSanPham + "]";
 	}
+	public SanPham() {
+	}
+	
      
 }

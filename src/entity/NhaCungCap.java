@@ -29,6 +29,15 @@ public class NhaCungCap {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
+	
+	public NhaCungCap() {
+		super();
+		this.maNCC=maNCC;
+	}
+	public NhaCungCap(String maNCC) {
+		super();
+		this.maNCC = maNCC;
+	}
 	public NhaCungCap(String maNCC, String tenNCC, String diachi, String sdt) {
 		super();
 		this.maNCC = maNCC;

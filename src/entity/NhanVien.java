@@ -3,13 +3,17 @@ package entity;
 public class NhanVien {
 	private String maNV;
 	private String tenNV;
-	private String gioiTinh;
+	private boolean gioiTinh;
 	private String sodienthoai;
 	private String chucvu;
 	private double luongcoban;
 	private String diachi;
 	private String matkhau;
 	private String email;
+	
+	public NhanVien() {
+		super();
+	}
 	public String getMaNV() {
 		return maNV;
 	}
@@ -22,10 +26,10 @@ public class NhanVien {
 	public void setTenNV(String tenNV) {
 		this.tenNV = tenNV;
 	}
-	public String getGioiTinh() {
+	public boolean getGioiTinh() {
 		return gioiTinh;
 	}
-	public void setGioiTinh(String gioiTinh) {
+	public void setGioiTinh(boolean gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 	public String getSodienthoai() {
@@ -64,7 +68,7 @@ public class NhanVien {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public NhanVien(String maNV, String tenNV, String gioiTinh, String sodienthoai, String chucvu, double luongcoban,
+	public NhanVien(String maNV, String tenNV, boolean gioiTinh, String sodienthoai, String chucvu, double luongcoban,
 			String diachi, String matkhau, String email) {
 		super();
 		this.maNV = maNV;
