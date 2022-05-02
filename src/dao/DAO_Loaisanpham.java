@@ -9,6 +9,7 @@ import java.util.List;
 
 import databaseconnect.ConnectDB;
 import entity.LoaiSanPham;
+import entity.SanPham;
 
 
 public class DAO_Loaisanpham {
@@ -72,6 +73,34 @@ public class DAO_Loaisanpham {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	public List<SanPham> getSanpham(String name) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		 List<SanPham> dsSanpham = new ArrayList<SanPham>();
+		 Connection con = ConnectDB.getConnection();
+		 String sql = "Select * from LoaiSanPham lsp Join SanPham sp On lsp.maLoaiSP = sp.maLoaiSP where tenLoaiSP = N'"+name+"'";
+		 
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				SanPham sanpham = new SanPham();
+				sanpham.setMaSP(rs.getString("maSP"));
+				sanpham.setTenSP(rs.getString("tenSP"));
+				sanpham.setDonGia(rs.getDouble("donGia"));
+				sanpham.setSlton(rs.getInt("soLuongTon"));
+				sanpham.setMaLoaiSP(new LoaiSanPham(rs.getString("maLoaiSP"),rs.getString("tenLoaiSP")));
+//				sanpham.setHinhanh();
+				dsSanpham.add(sanpham);
+			}
+			 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		 return dsSanpham;
 	}
 
 }

@@ -81,6 +81,17 @@ public class NhanVien {
 		this.matkhau = matkhau;
 		this.email = email;
 	}
+	public NhanVien(String manv) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.maNV=manv;
+	}
+	
+	public NhanVien(String maNV, String matkhau) {
+		super();
+		this.maNV = maNV;
+		this.matkhau = matkhau;
+	}
 	@Override
 	public String toString() {
 		return "NhanVien [maNV=" + maNV + ", tenNV=" + tenNV + ", gioiTinh=" + gioiTinh + ", sodienthoai=" + sodienthoai

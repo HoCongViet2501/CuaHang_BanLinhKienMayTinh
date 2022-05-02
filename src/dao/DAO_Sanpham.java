@@ -151,4 +151,67 @@ public class DAO_Sanpham {
 		out.close();
 		return path;
 	}
+
+	public int getSoluongton(String tensp) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		int soluongton = 0;
+		Connection con = ConnectDB.getConnection();
+		String sql = "select soLuongTon from sanpham where tenSP = N'" + tensp + "'";
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				soluongton = rs.getInt("soLuongTon");
+			}
+			return soluongton;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	public boolean updateSoluongton(String tensp, int soluongtonmoi) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		Connection con = ConnectDB.getConnection();
+		String sql = "update SanPham\r\n" + "set soLuongTon = " + soluongtonmoi + " where tenSP = N'" + tensp + "'";
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			int n = stmt.executeUpdate();
+			return n > 0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public SanPham getSanphamByName(String tensp) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		SanPham sanpham = new SanPham();
+		Connection con = ConnectDB.getConnection();
+		String sql = "Select * from SanPham where tenSP = N'"
+				+ tensp + "'";
+
+		try {
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				sanpham.setMaSP(rs.getString("maSP"));
+				sanpham.setTenSP(rs.getString("tenSP"));
+				sanpham.setDonGia(rs.getDouble("dongia"));
+				sanpham.setSlton(rs.getInt("soLuongTon"));
+				sanpham.setMaLoaiSP(new LoaiSanPham(rs.getString("maLoaiSP")));
+				sanpham.setMaNCC(
+						new NhaCungCap(rs.getString("maNCC")));
+				sanpham.setHinhAnh(rs.getBytes("hinhAnh"));
+			}
+			return sanpham;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

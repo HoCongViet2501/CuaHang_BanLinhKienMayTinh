@@ -127,7 +127,7 @@ public class ProductFrame extends javax.swing.JFrame implements ItemListener {
 
         labelTrangThai.setText("Trạng thái");
 
-        labelMaNCC.setText("Mã nhà cung cấp");
+        labelMaNCC.setText("Nhà cung cấp");
 
         cbMaNCC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -413,7 +413,7 @@ public class ProductFrame extends javax.swing.JFrame implements ItemListener {
         // TODO add your handling code here:
     	int click = tableSP.getSelectedRow();
 		TableModel tableModel = tableSP.getModel();
-		cbLoaiSP.setSelectedItem(tableModel.getValueAt(click, 4).toString());
+		cbLoaiSP.setSelectedItem(tableModel.getValueAt(click, 5).toString());
 		txtMaSP.setText(tableModel.getValueAt(click, 0).toString());
 		txtTenSP.setText(tableModel.getValueAt(click, 1).toString());
 		txtDonGia.setText(tableModel.getValueAt(click, 3).toString());
@@ -422,7 +422,7 @@ public class ProductFrame extends javax.swing.JFrame implements ItemListener {
 			txtTrangThai.setText("Còn hàng");
 		}else
 			txtTrangThai.setText("Hết hàng");
-		cbMaNCC.setSelectedItem(tableModel.getValueAt(click,5).toString());
+		cbMaNCC.setSelectedItem(tableModel.getValueAt(click,4).toString());
 		btnSua.setEnabled(true);
 		btnXoa.setEnabled(true);
 		DAO_Sanpham dao_sanpham = new DAO_Sanpham();

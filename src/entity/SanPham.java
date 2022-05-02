@@ -74,6 +74,13 @@ public class SanPham {
 		this.nhaCungCap = nhaCungCap;
 		this.loaiSanPham = loaiSanPham;
 	}
+	public SanPham(String maSP, String tenSP, int slton, double donGia) {
+		super();
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.slton = slton;
+		this.donGia = donGia;
+	}
 	@Override
 	public String toString() {
 		return "SanPham [maSP=" + maSP + ", tenSP=" + tenSP + ", slton=" + slton + ", donGia=" + donGia + ", hinhAnh="

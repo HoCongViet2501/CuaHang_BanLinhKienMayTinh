@@ -14,6 +14,10 @@ public class ChiTietDonDatHang {
 		this.dongia = dongia;
 		this.mucGiamGia = mucGiamGia;
 	}
+	public ChiTietDonDatHang() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
 	public DonDatHang getDondathang() {
 		return dondathang;
 	}

@@ -177,7 +177,7 @@ class LoginFrame extends javax.swing.JFrame {
     			manv=txtTenTK.getText();
     			mk=getMKText();
     			mk=txtMK.getText();
-    		  //  new HomeFrame().setVisible(true);
+    		    new HomeFrame().setVisible(true);
     		}else {
     			JOptionPane.showMessageDialog(this,"Sai thông tin tài khoản!!");
     			txtMK.setText("");

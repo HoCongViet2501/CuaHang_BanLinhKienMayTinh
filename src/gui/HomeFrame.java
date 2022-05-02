@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -16,7 +17,7 @@ public class HomeFrame extends JFrame {
 
 		initComponents();
 		setLocationRelativeTo(null);
-		//phanquyen();
+		// phanquyen();
 		new Thread() {
 			public void run() {
 				while (true) {
@@ -57,7 +58,7 @@ public class HomeFrame extends JFrame {
 			mnuItemThongKeSP.setEnabled(false);
 			btnCapNhatLSP.setEnabled(false);
 			btnCapNhatNCC.setEnabled(false);
-			btnQuanLyDH.setEnabled(false);
+			btnDatHang.setEnabled(false);
 			btnQuanLyNV.setEnabled(false);
 			btnQuanLySP.setEnabled(false);
 			btnThongKeDT.setEnabled(false);
@@ -70,7 +71,7 @@ public class HomeFrame extends JFrame {
 			mnuItemThongKeDT.setEnabled(false);
 			mnuItemThongKeSP.setEnabled(false);
 			btnBanHang.setEnabled(false);
-			btnQuanLyDH.setEnabled(false);
+			btnDatHang.setEnabled(false);
 			btnQuanLyNV.setEnabled(false);
 			btnThongKeDT.setEnabled(false);
 			btnThongKeSP.setEnabled(false);
@@ -91,7 +92,7 @@ public class HomeFrame extends JFrame {
 		panelManHinhChinh = new javax.swing.JPanel();
 		labelManHinhChinh = new javax.swing.JLabel();
 		btnQuanLySP = new javax.swing.JButton();
-		btnQuanLyDH = new javax.swing.JButton();
+		btnDatHang = new javax.swing.JButton();
 		btnDangXuat = new javax.swing.JButton();
 		btnQuanLyNV = new javax.swing.JButton();
 		btnBanHang = new javax.swing.JButton();
@@ -154,14 +155,14 @@ public class HomeFrame extends JFrame {
 			}
 		});
 
-		btnQuanLyDH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-		btnQuanLyDH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/trolley.png"))); // NOI18N
-		btnQuanLyDH.setText("Quản lý đơn hàng");
-		btnQuanLyDH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		btnQuanLyDH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-		btnQuanLyDH.addActionListener(new java.awt.event.ActionListener() {
+		btnDatHang.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+		btnDatHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/trolley.png"))); // NOI18N
+		btnDatHang.setText("Đặt hàng");
+		btnDatHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+		btnDatHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		btnDatHang.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnQuanLyDHActionPerformed(evt);
+				btnDatHangActionPerformed(evt);
 			}
 		});
 
@@ -216,7 +217,12 @@ public class HomeFrame extends JFrame {
 		btnCapNhatNCC.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 		btnCapNhatNCC.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnCapNhatNCCActionPerformed(evt);
+				try {
+					btnCapNhatNCCActionPerformed(evt);
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 
@@ -311,7 +317,7 @@ public class HomeFrame extends JFrame {
 														.addComponent(btnCapNhatNCC,
 																javax.swing.GroupLayout.PREFERRED_SIZE, 229,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addGap(50, 50, 50).addComponent(btnQuanLyDH,
+														.addGap(50, 50, 50).addComponent(btnDatHang,
 																javax.swing.GroupLayout.PREFERRED_SIZE, 229,
 																javax.swing.GroupLayout.PREFERRED_SIZE)))
 										.addGap(63, 63, 63)
@@ -344,7 +350,7 @@ public class HomeFrame extends JFrame {
 																				.addComponent(labelvalueTenNV))
 																.addGroup(panelManHinhChinhLayout.createParallelGroup(
 																		javax.swing.GroupLayout.Alignment.TRAILING)
-																		
+
 																		.addComponent(panelDongHo,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -355,18 +361,19 @@ public class HomeFrame extends JFrame {
 				.setVerticalGroup(
 						panelManHinhChinhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelManHinhChinhLayout
-										.createSequentialGroup().addGap(19, 19, 19)
-										.addGroup(panelManHinhChinhLayout
-												.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.createSequentialGroup().addGap(19, 19, 19).addGroup(panelManHinhChinhLayout
+												.createParallelGroup(
+														javax.swing.GroupLayout.Alignment.LEADING)
 												.addComponent(labelManHinhChinh).addGroup(panelManHinhChinhLayout
 														.createSequentialGroup().addGroup(panelManHinhChinhLayout
 																.createParallelGroup(
 																		javax.swing.GroupLayout.Alignment.BASELINE)
-																.addComponent(labelHoTenNV)
+																.addComponent(
+																		labelHoTenNV)
 																.addComponent(labelvalueTenNV))
 														.addGap(18, 18, 18)
-														.addComponent(
-																jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
+														.addComponent(jSeparator1,
+																javax.swing.GroupLayout.PREFERRED_SIZE, 10,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addGap(18, 18, 18)))
 										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25,
@@ -399,7 +406,7 @@ public class HomeFrame extends JFrame {
 																		false)
 																.addGroup(panelManHinhChinhLayout
 																		.createSequentialGroup().addComponent(
-																				btnQuanLyDH,
+																				btnDatHang,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				169,
 																				javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,7 +453,7 @@ public class HomeFrame extends JFrame {
 		mnuItemSP.setText("Sản phẩm");
 		mnuItemSP.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemDCHTActionPerformed(evt);
+				mnuItemSPActionPerformed(evt);
 			}
 		});
 		mnuDanhMuc.add(mnuItemSP);
@@ -479,7 +486,6 @@ public class HomeFrame extends JFrame {
 
 		mnuTmKiem.setText("Tìm kiếm");
 
-
 		mnuItemTKHD.setText("Tìm kiếm hóa đơn");
 		mnuItemTKHD.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -495,30 +501,6 @@ public class HomeFrame extends JFrame {
 			}
 		});
 		mnuTmKiem.add(mnuItemTKDH);
-
-		mnuItemTKNCC.setText("Tìm kiếm nhà cung cấp");
-		mnuItemTKNCC.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemTKNCCActionPerformed(evt);
-			}
-		});
-		mnuTmKiem.add(mnuItemTKNCC);
-
-		mnuitemTKLSP.setText("Tìm kiếm loại sản phẩm");
-		mnuitemTKLSP.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuitemTKLSPActionPerformed(evt);
-			}
-		});
-		mnuTmKiem.add(mnuitemTKLSP);
-
-		mnuItemTKSP.setText("Tìm kiếm sản phẩm");
-		mnuItemTKSP.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				mnuItemTKDDHTActionPerformed(evt);
-			}
-		});
-		mnuTmKiem.add(mnuItemTKSP);
 
 		menuBarHome.add(mnuTmKiem);
 
@@ -597,149 +579,192 @@ public class HomeFrame extends JFrame {
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
+	protected void mnuItemSPActionPerformed(ActionEvent evt) {
+		// TODO Auto-generated method stub
+      dispose();
+      try {
+		new ProductFrame().setVisible(true);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+
+	protected void btnDatHangActionPerformed(ActionEvent evt) {
+		// TODO Auto-generated method stub
+		dispose();
+		try {
+			new CustomerFrame().setVisible(true);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	protected void mnuItemThongKeDTActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+        new StatisticalFrame().setVisible(true);
 	}
 
 	protected void mnuItemThongKeSPActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+        new ProductStatisticsFrame().setVisible(true);
 	}
 
 	protected void mnuItemDangxuatActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+         dispose();
+         new LoginFrame().setVisible(true);
 	}
 
 	protected void mnuItemDatHangActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+      dispose();
+      try {
+		new CustomerFrame().setVisible(true);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 
 	protected void mnuItemDoiMatKhauActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		new ChangePasswordFrame().setVisible(true);
 	}
 
 	protected void mnuItemBanHangActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+       try {
+		new CustomerFrame().setVisible(true);
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 
-	protected void mnuItemChamCongActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
-
-	protected void mnuItemTKDDHTActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
-
-	protected void mnuitemTKLSPActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
-
-	protected void mnuItemTKNCCActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
 
 	protected void mnuItemTKDHActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+         dispose();
+         new SearchOrderFrame().setVisible(true);
 	}
 
 	protected void mnuItemTKHDActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
-	}
-
-	protected void mnuItemTKSachActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
-
-	protected void mnuItemSachActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
+        dispose();
+        new SearchBillFrame().setVisible(true);
 	}
 
 	protected void mnuItemNCCActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new ProducerFrame().setVisible(true);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void mnuItemLSPActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new TypeProductFrame().setVisible(true);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void mnuItemNVActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new EmployeeFrame().setVisible(true);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	protected void mnuItemDCHTActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
-
-	protected void btnChamCongActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
-	}
 
 	protected void btnThongKeDTActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		new StatisticalFrame().setVisible(true);
 	}
 
 	protected void btnThongKeSPActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		new ProductStatisticsFrame().setVisible(true);
 	}
 
 	protected void btnCapNhatLSPActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+        dispose();
+        try {
+			new TypeProductFrame().setVisible(true);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	protected void btnCapNhatNCCActionPerformed(ActionEvent evt) {
+	protected void btnCapNhatNCCActionPerformed(ActionEvent evt) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-
+		dispose();
+		new ProducerFrame().setVisible(true);
 	}
 
 	protected void btnThoatActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-       System.exit(0);
+		System.exit(0);
 	}
 
 	protected void btnBanHangActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new CustomerFrame().setVisible(true);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void btnQuanLyNVActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new EmployeeFrame().setVisible(true);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void btnDangXuatActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-         new LoginFrame().setVisible(true);
-	}
-
-	protected void btnQuanLyDHActionPerformed(ActionEvent evt) {
-		// TODO Auto-generated method stub
-
+		dispose();
+		new LoginFrame().setVisible(true);
 	}
 
 	protected void btnQuanLySPActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-
+		dispose();
+		try {
+			new ProductFrame().setVisible(true);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String args[]) {
@@ -787,7 +812,7 @@ public class HomeFrame extends JFrame {
 	private javax.swing.JButton btnCapNhatLSP;
 	private javax.swing.JButton btnCapNhatNCC;
 	private javax.swing.JButton btnDangXuat;
-	private javax.swing.JButton btnQuanLyDH;
+	private javax.swing.JButton btnDatHang;
 	private javax.swing.JButton btnQuanLyNV;
 	private javax.swing.JButton btnQuanLySP;
 	private javax.swing.JButton btnThoat;
