@@ -7,6 +7,7 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -106,18 +107,6 @@ public class EmployeeFrame extends javax.swing.JFrame {
 
         labelDiaChi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelDiaChi.setText("Địa chỉ");
-
-        txtMaNV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaNVActionPerformed(evt);
-            }
-        });
-
-        txtTenNV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTenNVActionPerformed(evt);
-            }
-        });
 
         btnThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/out.png"))); // NOI18N
         btnThoat.setText("Thoát");
@@ -379,7 +368,6 @@ public class EmployeeFrame extends javax.swing.JFrame {
 		}
 		tableQLNV.setModel(tableModel);
 	}
-
 	private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnQuayLaiActionPerformed
 		// TODO add your handling code here:
 		clearData();
@@ -528,7 +516,7 @@ public class EmployeeFrame extends javax.swing.JFrame {
 		rdGioiTinh.setSelected(Boolean.parseBoolean(model.getValueAt(click, 2).toString()));
 		txtSDT.setText(model.getValueAt(click, 3).toString());
 		txtChucVu.setText(model.getValueAt(click, 4).toString());
-		txtLuong.setText(model.getValueAt(click, 5).toString());
+		txtLuong.setText( model.getValueAt(click, 5).toString());
 		txtDiaChi.setText(model.getValueAt(click, 6).toString());
 		txtMatKhau.setText(model.getValueAt(click, 7).toString());
 		txtEmail.setText(model.getValueAt(click, 8).toString());
@@ -544,14 +532,6 @@ public class EmployeeFrame extends javax.swing.JFrame {
 		new HomeFrame().setVisible(true);
 	}
 
-	private void txtTenNVActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtTenNVActionPerformed
-		// TODO add your handling code here:
-
-	}// GEN-LAST:event_txtTenNVActionPerformed
-
-	private void txtMaNVActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtMaNVActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_txtMaNVActionPerformed
 
 	private void btnThemActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {// GEN-FIRST:event_btnThemActionPerformed
 		// TODO add your handling code here:\?

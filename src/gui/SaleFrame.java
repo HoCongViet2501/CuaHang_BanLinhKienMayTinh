@@ -683,6 +683,7 @@ public class SaleFrame extends javax.swing.JFrame {
 	    	JasperReport report = JasperCompileManager.compileReport("src\\hoadon\\hoadon.jrxml");
 	    	JasperPrint jp = JasperFillManager.fillReport(report, new HashMap(), con);
 	    	JasperViewer.viewReport(jp);
+	    	
 		} catch (JRException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -748,7 +749,7 @@ public class SaleFrame extends javax.swing.JFrame {
 		if (txtSoLuong.getText().equals("")) {
 			JOptionPane.showMessageDialog(this, "Bạn chưa nhập số lượng cho sản phẩm!");
 		} else {
-			if(kiemtraSoluong(Integer.parseInt(txtSoLuong.getText()), getSoluongton(tableSP.getValueAt(tableSP.getSelectedRow(), 1).toString()))) {
+			if(kiemtraSoluong(Integer.parseInt(txtSoLuong.getText()), getSoluongton(tableSP.getValueAt(tableSP.getSelectedRow(), 1).toString()))==true) {
 				if (chucnang == 1) {
 //					chitiethoadon = new ChitietHoadon();
 					SanPham sanpham = new DAO_Sanpham()
@@ -772,8 +773,6 @@ public class SaleFrame extends javax.swing.JFrame {
 			}
 			labelValueTongtien.setText(formatMoney(hoadon.getTongTien()) + " VND");
 			txtSoLuong.setText("");
-			txtSoLuong.setEnabled(false);
-			btnThemSP.setEnabled(false);
 			dsChitiethoadon.forEach(cthd ->{
 				System.out.print(cthd.toString());
 			});
@@ -949,8 +948,8 @@ public class SaleFrame extends javax.swing.JFrame {
 	}
 
 	public boolean kiemtraSoluong(int soluong, int soluongton) {
-		if(soluong > soluongton) {
-			JOptionPane.showMessageDialog(this, "Sản phẩm không đủ số lượng!", "Cảnh báo", JOptionPane.CLOSED_OPTION);
+		if(soluong > soluongton||soluong<=0) {
+			JOptionPane.showMessageDialog(this, "Sản phẩm không đủ số lượng hoặc số lượng đang nhỏ hơn hoặc bằng 0!", "Cảnh báo", JOptionPane.CLOSED_OPTION);
 			return false;
 		}
 		return true;

@@ -104,7 +104,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	    	}
 	    	String ngaybatdau = df.format(dateNgayBatDau.getDate());
 	    	String ngayketthuc = df.format(dateNgayKetThuc.getDate());
-	    	Map<String, String> map = new HashMap<String, String>();
+	    	Map<String, Integer> map = new HashMap<String, Integer>();
 	    	map = dao_thongke.getCountSP(listMaSP, ngaybatdau, ngayketthuc);
 	    	Set<String> set = map.keySet();
 	    	listSP = new ArrayList<List<String>>();
@@ -116,7 +116,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	            	   item.add(sp.getTenSP());
 	            	   item.add(String.valueOf(sp.getDonGia()));
 	            	   item.add(String.valueOf(sp.getSlton()));
-	            	   item.add(map.get(key));
+	            	   item.add(String.valueOf(map.get(key)));
 	            	   listSP.add(item);
 	               }
 	            }
@@ -137,7 +137,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	    	for(SanPham sp: lsp) {
 	    		listMaSP.add(String.valueOf(sp.getMaSP()));
 	    	}
-	    	Map<String, String> map = new HashMap<String, String>();
+	    	Map<String, Integer> map = new HashMap<String, Integer>();
 	    	map = dao_thongke.getCountSP(listMaSP, datenow, datenow);
 	    	Set<String> set = map.keySet();
 	    	listSP = new ArrayList<List<String>>();
@@ -149,7 +149,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	            	   item.add(sp.getTenSP());
 	            	   item.add(String.valueOf(sp.getDonGia()));
 	            	   item.add(String.valueOf(sp.getSlton()));
-	            	   item.add(map.get(key));
+	            	   item.add(String.valueOf(map.get(key)));
 	            	   listSP.add(item);
 	               }
 	            }
@@ -168,7 +168,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	    	for(SanPham sp: lsp) {
 	    		listMaSP.add(sp.getMaSP());
 	    	}
-	    	Map<String, String> map = new HashMap<String, String>();
+	    	Map<String, Integer> map = new HashMap<String, Integer>();
 	    	map = dao_thongke.getCountSP(listMaSP, start.toString(), end.toString());
 	    	Set<String> set = map.keySet();
 	    	listSP = new ArrayList<List<String>>();
@@ -180,7 +180,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	            	   item.add(sp.getTenSP());
 	            	   item.add(String.valueOf(sp.getDonGia()));
 	            	   item.add(String.valueOf(sp.getSlton()));
-	            	   item.add(map.get(key));
+	            	   item.add(String.valueOf(map.get(key)));
 	            	   listSP.add(item);
 	               }
 	            }
@@ -199,7 +199,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	    	for(SanPham sp: lsp) {
 	    		listMaSP.add(String.valueOf(sp.getMaSP()));
 	    	}
-	    	Map<String, String> map = new HashMap<String, String>();
+	    	Map<String, Integer> map = new HashMap<String, Integer>();
 	    	map = dao_thongke.getCountSP(listMaSP, start.toString(), end.toString());
 	    	Set<String> set = map.keySet();
 	    	listSP = new ArrayList<List<String>>();
@@ -211,7 +211,7 @@ public class ProductStatisticsFrame extends javax.swing.JFrame {
 	            	   item.add(sp.getTenSP());
 	            	   item.add(String.valueOf(sp.getDonGia()));
 	            	   item.add(String.valueOf(sp.getSlton()));
-	            	   item.add(map.get(key));
+	            	   item.add(String.valueOf(map.get(key)));
 	            	   listSP.add(item);
 	               }
 	            }

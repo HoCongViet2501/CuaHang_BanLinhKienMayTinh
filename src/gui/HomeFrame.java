@@ -16,6 +16,7 @@ public class HomeFrame extends JFrame {
 	public HomeFrame() throws ClassNotFoundException {
 
 		initComponents();
+		phanquyen();
 		setLocationRelativeTo(null);
 		// phanquyen();
 		new Thread() {
@@ -50,31 +51,34 @@ public class HomeFrame extends JFrame {
 		String manv = new LoginFrame().getMaNVText();
 		String chucvu = daohome.getChucVu(manv);
 		if (chucvu.equals("NVBH")) {
-			mnuItemSP.setEnabled(false);
-			mnuItemLSP.setEnabled(false);
-			mnuItemNCC.setEnabled(false);
+//			mnuItemSP.setEnabled(false);
+//			mnuItemLSP.setEnabled(false);
+//			mnuItemNCC.setEnabled(false);
 			mnuItemNV.setEnabled(false);
 			mnuItemThongKeDT.setEnabled(false);
 			mnuItemThongKeSP.setEnabled(false);
-			btnCapNhatLSP.setEnabled(false);
-			btnCapNhatNCC.setEnabled(false);
-			btnDatHang.setEnabled(false);
+//			btnCapNhatLSP.setEnabled(false);
+//			btnCapNhatNCC.setEnabled(false);
+		//	btnDatHang.setEnabled(false);
 			btnQuanLyNV.setEnabled(false);
-			btnQuanLySP.setEnabled(false);
+		///	btnQuanLySP.setEnabled(false);
 			btnThongKeDT.setEnabled(false);
 			btnThongKeSP.setEnabled(false);
 		}
 		if (chucvu.equals("NVNS")) {
 			mnuItemBanHang.setEnabled(false);
 			mnuItemDatHang.setEnabled(false);
-			mnuItemNV.setEnabled(false);
-			mnuItemThongKeDT.setEnabled(false);
-			mnuItemThongKeSP.setEnabled(false);
+		//	mnuItemNV.setEnabled(false);
+		//	mnuItemThongKeDT.setEnabled(false);
+		//	mnuItemThongKeSP.setEnabled(false);
 			btnBanHang.setEnabled(false);
 			btnDatHang.setEnabled(false);
-			btnQuanLyNV.setEnabled(false);
-			btnThongKeDT.setEnabled(false);
-			btnThongKeSP.setEnabled(false);
+			btnCapNhatLSP.setEnabled(false);
+			btnCapNhatNCC.setEnabled(false);
+			mnuItemLSP.setEnabled(false);
+			mnuItemNCC.setEnabled(false);
+			btnQuanLySP.setEnabled(false);
+			mnuItemSP.setEnabled(false);
 		}
 	}
 

@@ -792,9 +792,10 @@ public class OrderFrame extends javax.swing.JFrame {
 	 * @param args the command line arguments
 	 */
 	
+
 	public boolean kiemtraSoluong(int soluong, int soluongton) {
-		if(soluong > soluongton) {
-			JOptionPane.showMessageDialog(this, "Sản phẩm không đủ số lượng!", "Cảnh báo", JOptionPane.CLOSED_OPTION);
+		if(soluong > soluongton||soluong<=0) {
+			JOptionPane.showMessageDialog(this, "Sản phẩm không đủ số lượng hoặc số lượng đang nhỏ hơn hoặc bằng 0!", "Cảnh báo", JOptionPane.CLOSED_OPTION);
 			return false;
 		}
 		return true;

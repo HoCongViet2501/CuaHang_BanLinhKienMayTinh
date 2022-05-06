@@ -27,10 +27,10 @@ public class DAO_ThongKe {
 		return list;
 	}
 
-	public Map<String, String> getCountSP(List<String> list, String ngaybatdau, String ngayketthuc) throws SQLException, ClassNotFoundException {
+	public Map<String, Integer> getCountSP(List<String> list, String ngaybatdau, String ngayketthuc) throws SQLException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		String sql = "select sum(soLuong) as tong from SanPham as sp join ChiTietHoaDon as cthd on sp.maSP = cthd.maSP join HoaDon as hd on hd.maHD= cthd.maHD where sp.maSP = ? and (ngayLapHD between ? and ?)";
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Integer> map = new HashMap<String, Integer>();
 		Connection con = ConnectDB.getConnection();
 		PreparedStatement stmt  = con.prepareStatement(sql);
 		stmt.setString(2, ngaybatdau);
@@ -40,9 +40,9 @@ public class DAO_ThongKe {
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				if(rs.getString("tong") == null) {
-					map.put(i, null);
+					map.put(i, 0);
 				}else {
-					map.put(i, rs.getString("tong"));
+					map.put(i, rs.getInt("tong"));
 				}
 			}
 		}
