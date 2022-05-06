@@ -5,7 +5,7 @@ public class ChiTietHoaDon {
 	private SanPham sanpham;
 	private int soluong;
 	private double dongia;
-	private double tongTien;
+	private double thanhTien;
 	public HoaDon getHoadon() {
 		return hoadon;
 	}
@@ -31,23 +31,23 @@ public class ChiTietHoaDon {
 		this.dongia = dongia;
 	}
 	public double getTongTien() {
-		return tongTien;
+		return thanhTien;
 	}
 	public void setTongTien(double tongTien) {
-		this.tongTien = tongTien;
+		this.thanhTien = tongTien;
 	}
-	public ChiTietHoaDon(HoaDon hoadon, SanPham sanpham, int soluong, double dongia, double tongTien) {
+	public ChiTietHoaDon(HoaDon hoadon, SanPham sanpham, int soluong, double dongia) {
 		super();
 		this.hoadon = hoadon;
 		this.sanpham = sanpham;
 		this.soluong = soluong;
 		this.dongia = dongia;
-		this.tongTien = tongTien;
+		this.thanhTien = this.dongia*this.soluong;
 	}
 	@Override
 	public String toString() {
 		return "ChiTietHoaDon [hoadon=" + hoadon + ", sanpham=" + sanpham + ", soluong=" + soluong + ", dongia="
-				+ dongia + ", tongTien=" + tongTien + "]";
+				+ dongia + ", tongTien=" + thanhTien + "]";
 	}
 	
 }
